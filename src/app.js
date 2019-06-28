@@ -6,6 +6,8 @@ const hbs = require('hbs'); // para que podamos utilizar partials
 // __filename // el valor del directory
 // console.log(__dirname); // para el directory name
 const app = express();
+const port = process.env.PORT || 3000;
+
 
 // DEFINICION DE DIRECTORIOS PARA EXPRESS ***************
 const publicDirectory = path.join(__dirname,'../public'); // aqui tenemos nuestros archivos estaticos como css js imagenes etc 
@@ -109,6 +111,6 @@ app.get('*', (req,res) => {
 
 
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000!');
+app.listen( port , () => {
+    console.log(`Server is up on port ${port}!`);
 });

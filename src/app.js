@@ -64,17 +64,16 @@ app.get('/weather', (req,res) => {
         if (error) {
             return res.send({error});
         }
-        forecast(latitude, longitude, (error, {temperature, precip}) => {
+        forecast(latitude, longitude, (error, forecastData) => {
             if (error) {
                 return res.send({error});
             } 
 
             res.send({
-                forecast: precip,
-                location: location,
-                temperature: temperature,
+                forecast: forecastData,
+                location,
                 address: req.query.address
-            });
+            })
         });
     });
 });
